@@ -267,6 +267,82 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://puzzzzzzle.github.io/2020/05/01/%E9%AB%98%E6%95%88%E7%9A%84ID%E7%AE%A1%E7%90%86-%E9%9A%8F%E6%9C%BA-%E5%88%A0%E9%99%A4%E6%96%B9%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="puzzzzzzle">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="puzzzzzzle's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/01/%E9%AB%98%E6%95%88%E7%9A%84ID%E7%AE%A1%E7%90%86-%E9%9A%8F%E6%9C%BA-%E5%88%A0%E9%99%A4%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">高效的ID管理,随机,删除方式</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-05-01 14:53:10 / 修改时间：14:59:57" itemprop="dateCreated datePublished" datetime="2020-05-01T14:53:10+08:00">2020-05-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/c/" itemprop="url" rel="index">
+                    <span itemprop="name">c++</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="高效的ID管理-随机-删除方式"><a href="#高效的ID管理-随机-删除方式" class="headerlink" title="高效的ID管理,随机,删除方式"></a>高效的ID管理,随机,删除方式</h1><ul>
+<li>在测试时,需要随机生成很多key进行管理,还需要随机取出,删除<ul>
+<li>最早使用rb_tree_map管理,但是性能不行,反倒是ID管理成为了瓶颈,无法测出程序真正的性能瓶颈</li>
+</ul>
+</li>
+<li>使用裸数组和hash_map,可以实现O(1)的随机,添加和删除也只是hash_map的复杂的,性能提高了很多<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">#pragma once</span><br><span class="line">#include &lt;cstdlib&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">#include &lt;unordered_map&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line"></span><br><span class="line">#define RAND(begin, end) ((rand() % ((end) - (begin))) + (begin))</span><br><span class="line"></span><br><span class="line">template&lt;class KeyType&gt;</span><br><span class="line">class KeyHolder</span><br><span class="line">&#123;</span><br><span class="line">private:</span><br><span class="line">    KeyType *keys&#123;&#125;;</span><br><span class="line">    int point&#123;0&#125;;</span><br><span class="line">    const int MAX_SIZE;</span><br><span class="line">    std::unordered_map&lt;KeyType, int&gt; keyMap&#123;&#125;;</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    KeyHolder(KeyHolder &amp;) &#x3D; delete;</span><br><span class="line">    KeyHolder(KeyHolder &amp;&amp;) &#x3D; delete;</span><br><span class="line"></span><br><span class="line">    KeyHolder(int maxSize) : MAX_SIZE(maxSize)</span><br><span class="line">    &#123;</span><br><span class="line">        keys &#x3D; new KeyType[maxSize];</span><br><span class="line">    &#125;</span><br><span class="line">    ~KeyHolder()</span><br><span class="line">    &#123;</span><br><span class="line">        if (keys !&#x3D; nullptr)</span><br><span class="line">        &#123;</span><br><span class="line">            delete[] keys;</span><br><span class="line">            keys &#x3D; nullptr;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    int Add(const KeyType &amp;key)</span><br><span class="line">    &#123;</span><br><span class="line">        if (point &gt;&#x3D; MAX_SIZE)</span><br><span class="line">        &#123;</span><br><span class="line">            return -2;</span><br><span class="line">        &#125;</span><br><span class="line">        auto ret &#x3D; keyMap.insert(std::make_pair(key, point));</span><br><span class="line">        if (!ret.second)</span><br><span class="line">        &#123;</span><br><span class="line">            return -1;</span><br><span class="line">        &#125;</span><br><span class="line">        keys[point] &#x3D; key;</span><br><span class="line">        ++point;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    int Rand(KeyType *outKey)</span><br><span class="line">    &#123;</span><br><span class="line">        if (point &#x3D;&#x3D; 0)</span><br><span class="line">        &#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">        int randNum &#x3D; RAND(0, point);</span><br><span class="line">        (*outKey) &#x3D; keys[randNum];</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    int Remove(const KeyType &amp;key)</span><br><span class="line">    &#123;</span><br><span class="line">        auto it &#x3D; keyMap.find(key);</span><br><span class="line">        if (it &#x3D;&#x3D; keyMap.end())</span><br><span class="line">        &#123;</span><br><span class="line">            return -1;</span><br><span class="line">        &#125;</span><br><span class="line">        int index &#x3D; it-&gt;second;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 和最后一个交换位置</span><br><span class="line">        keys[index] &#x3D; keys[point - 1];</span><br><span class="line">        keyMap[keys[index]] &#x3D; index;</span><br><span class="line">        --point;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://puzzzzzzle.github.io/2020/05/01/%E6%94%B9%E8%BF%9B%E7%9A%84SnowFlake-%E5%A4%9A%E6%9C%BA%E5%94%AF%E4%B8%80ID%E7%94%9F%E6%88%90%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -292,7 +368,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-05-01 14:14:49 / 修改时间：14:45:32" itemprop="dateCreated datePublished" datetime="2020-05-01T14:14:49+08:00">2020-05-01</time>
+              <time title="创建时间：2020-05-01 14:14:49 / 修改时间：14:59:57" itemprop="dateCreated datePublished" datetime="2020-05-01T14:14:49+08:00">2020-05-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -885,7 +961,7 @@ struct HandleBindEqual {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -898,7 +974,7 @@ struct HandleBindEqual {
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
