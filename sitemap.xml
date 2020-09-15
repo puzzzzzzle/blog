@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://puzzzzzzle.github.io/about/index.html</loc>
+    
+    <lastmod>2020-09-15T01:48:11.339Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://puzzzzzzle.github.io/2020/09/14/glibc-%E6%B1%87%E7%BC%96%E4%B8%AD%E7%9A%84cfi-xxx%E6%8C%87%E4%BB%A4/</loc>
     
-    <lastmod>2020-09-14T15:01:51.851Z</lastmod>
+    <lastmod>2020-09-14T15:02:35.002Z</lastmod>
     
   </url>
   
@@ -117,13 +124,6 @@
     <loc>https://puzzzzzzle.github.io/home/index.html</loc>
     
     <lastmod>2020-01-19T14:33:58.705Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://puzzzzzzle.github.io/about/index.html</loc>
-    
-    <lastmod>2020-01-19T14:33:58.691Z</lastmod>
     
   </url>
   
