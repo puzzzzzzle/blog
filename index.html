@@ -65,6 +65,223 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-c-大-map-性能分析与优化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/05/15/c-%E5%A4%A7-map-%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E4%B8%8E%E4%BC%98%E5%8C%96/" class="article-date">
+  <time datetime="2021-05-15T07:33:13.000Z" itemprop="datePublished">2021-05-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/15/c-%E5%A4%A7-map-%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E4%B8%8E%E4%BC%98%E5%8C%96/">c++ 大 map 性能分析与优化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://puzzzzzzle.github.io/2021/05/15/c-%E5%A4%A7-map-%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E4%B8%8E%E4%BC%98%E5%8C%96/" data-id="ckp3h33n90000i81fcyab84wp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-cpython-PyObject-继承机制的实现" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/05/08/cpython-PyObject-%E7%BB%A7%E6%89%BF%E6%9C%BA%E5%88%B6%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="article-date">
+  <time datetime="2021-05-08T08:44:02.000Z" itemprop="datePublished">2021-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/08/cpython-PyObject-%E7%BB%A7%E6%89%BF%E6%9C%BA%E5%88%B6%E7%9A%84%E5%AE%9E%E7%8E%B0/">cpython PyObject 继承机制的实现</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">(lldb) call PyUnicode_FromWideChar(L&quot;算法符合&quot;, -1)</span><br><span class="line">(_object *) $16 &#x3D; 0x000001fd3a9e0a50</span><br><span class="line">(lldb) p *$16</span><br><span class="line">(_object) $17 &#x3D; &#123;</span><br><span class="line">  ob_refcnt &#x3D; 1</span><br><span class="line">  ob_type &#x3D; 0x00007fff35396140</span><br><span class="line">&#125;</span><br><span class="line">(lldb) p *(PyASCIIObject *)$16</span><br><span class="line">(PyASCIIObject) $18 &#x3D; &#123;</span><br><span class="line">  ob_base &#x3D; &#123;</span><br><span class="line">    ob_refcnt &#x3D; 1</span><br><span class="line">    ob_type &#x3D; 0x00007fff35396140</span><br><span class="line">  &#125;</span><br><span class="line">  length &#x3D; 4</span><br><span class="line">  hash &#x3D; -1</span><br><span class="line">  state &#x3D; (interned &#x3D; 0, kind &#x3D; 2, compact &#x3D; 1, ascii &#x3D; 0, ready &#x3D; 1)</span><br><span class="line">  wstr &#x3D; 0x000001fd3a9e0a98 L&quot;算法符合&quot;</span><br><span class="line">&#125;</span><br><span class="line">(lldb) p *(PyCompactUnicodeObject *)$16</span><br><span class="line">(PyCompactUnicodeObject) $20 &#x3D; &#123;</span><br><span class="line">  _base &#x3D; &#123;</span><br><span class="line">    ob_base &#x3D; &#123;</span><br><span class="line">      ob_refcnt &#x3D; 1</span><br><span class="line">      ob_type &#x3D; 0x00007fff35396140</span><br><span class="line">    &#125;</span><br><span class="line">    length &#x3D; 4</span><br><span class="line">    hash &#x3D; -1</span><br><span class="line">    state &#x3D; (interned &#x3D; 0, kind &#x3D; 2, compact &#x3D; 1, ascii &#x3D; 0, ready &#x3D; 1)</span><br><span class="line">    wstr &#x3D; 0x000001fd3a9e0a98 L&quot;算法符合&quot;</span><br><span class="line">  &#125;</span><br><span class="line">  utf8_length &#x3D; 0</span><br><span class="line">  utf8 &#x3D; 0x0000000000000000</span><br><span class="line">  wstr_length &#x3D; 4</span><br><span class="line">&#125;</span><br><span class="line">(lldb) p *(PyUnicodeObject *)$16</span><br><span class="line">(PyUnicodeObject) $19 &#x3D; &#123;</span><br><span class="line">  _base &#x3D; &#123;</span><br><span class="line">    _base &#x3D; &#123;</span><br><span class="line">      ob_base &#x3D; &#123;</span><br><span class="line">        ob_refcnt &#x3D; 1</span><br><span class="line">        ob_type &#x3D; 0x00007fff35396140</span><br><span class="line">      &#125;</span><br><span class="line">      length &#x3D; 4</span><br><span class="line">      hash &#x3D; -1</span><br><span class="line">      state &#x3D; (interned &#x3D; 0, kind &#x3D; 2, compact &#x3D; 1, ascii &#x3D; 0, ready &#x3D; 1)</span><br><span class="line">      wstr &#x3D; 0x000001fd3a9e0a98 L&quot;算法符合&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    utf8_length &#x3D; 0</span><br><span class="line">    utf8 &#x3D; 0x0000000000000000</span><br><span class="line">    wstr_length &#x3D; 4</span><br><span class="line">  &#125;</span><br><span class="line">  data &#x3D; (interned &#x3D; 3, kind &#x3D; 5, compact &#x3D; 0, ascii &#x3D; 0, ready &#x3D; 1)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">PyObject * PyUnicode_FromWideChar(const wchar_t *u, Py_ssize_t size)</span><br><span class="line">PyObject * PyUnicode_New(Py_ssize_t size, Py_UCS4 maxchar)</span><br><span class="line">_PyUnicode_CONVERT_BYTES</span><br><span class="line"></span><br><span class="line">    struct_size &#x3D; sizeof(PyCompactUnicodeObject);</span><br><span class="line">    if (maxchar &lt; 128) &#123;</span><br><span class="line">        kind &#x3D; PyUnicode_1BYTE_KIND;</span><br><span class="line">        char_size &#x3D; 1;</span><br><span class="line">        is_ascii &#x3D; 1;</span><br><span class="line">        struct_size &#x3D; sizeof(PyASCIIObject);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">        obj &#x3D; (PyObject *) PyObject_Malloc(struct_size + (size + 1) * char_size);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">(lldb) p *(PyASCIIObject *)unicode</span><br><span class="line">(PyASCIIObject) $18 &#x3D; &#123;</span><br><span class="line">  ob_base &#x3D; &#123;</span><br><span class="line">    ob_refcnt &#x3D; 1</span><br><span class="line">    ob_type &#x3D; 0x00007fff35396140</span><br><span class="line">  &#125;</span><br><span class="line">  length &#x3D; 67</span><br><span class="line">  hash &#x3D; -1</span><br><span class="line">  state &#x3D; (interned &#x3D; 0, kind &#x3D; 1, compact &#x3D; 1, ascii &#x3D; 1, ready &#x3D; 1)</span><br><span class="line">  wstr &#x3D; 0x0000000000000000</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">					do &#123;</span><br><span class="line">  unsigned char *_to &#x3D; (unsigned char *)(((</span><br><span class="line">      Py_UCS1</span><br><span class="line">          *)((void)((!!(PyType_HasFeature((((PyObject *)(unicode))-&gt;ob_type),</span><br><span class="line">                                          (1UL &lt;&lt; 28)))) ||</span><br><span class="line">                    (_wassert(L&quot;PyUnicode_Check(unicode)&quot;, L&quot;_file_name_&quot;,</span><br><span class="line">                              (unsigned)(2255)),</span><br><span class="line">                     0)),</span><br><span class="line">             (((PyASCIIObject *)(unicode))-&gt;state.compact)</span><br><span class="line">                 ? (((void)((!!(PyType_HasFeature(</span><br><span class="line">                                (((PyObject *)(unicode))-&gt;ob_type),</span><br><span class="line">                                (1UL &lt;&lt; 28)))) ||</span><br><span class="line">                            (_wassert(L&quot;PyUnicode_Check(unicode)&quot;,</span><br><span class="line">                                      L&quot;_file_name_&quot;, (unsigned)(2255)),</span><br><span class="line">                             0)),</span><br><span class="line">                     (void)((!!((((PyASCIIObject *)unicode)-&gt;state.ready))) ||</span><br><span class="line">                            (_wassert(L&quot;PyUnicode_IS_READY(unicode)&quot;,</span><br><span class="line">                                      L&quot;_file_name_&quot;, (unsigned)(2255)),</span><br><span class="line">                             0)),</span><br><span class="line">                     ((PyASCIIObject *)unicode)-&gt;state.ascii)</span><br><span class="line">                        ? ((void *)((PyASCIIObject *)(unicode) + 1))</span><br><span class="line">                        : ((void *)((PyCompactUnicodeObject *)(unicode) + 1)))</span><br><span class="line">                 : ((void)((!!(((PyUnicodeObject *)(unicode))-&gt;data.any)) ||</span><br><span class="line">                           (_wassert(L&quot;((PyUnicodeObject*)(unicode))-&gt;data.any&quot;,</span><br><span class="line">                                     L&quot;_file_name_&quot;, (unsigned)(2255)),</span><br><span class="line">                            0)),</span><br><span class="line">                    ((((PyUnicodeObject *)(unicode))-&gt;data.any))))));</span><br><span class="line">  const Py_UNICODE *_iter &#x3D; (const Py_UNICODE *)(u);</span><br><span class="line">  const Py_UNICODE *_end &#x3D; (const Py_UNICODE *)(u + size);</span><br><span class="line">  Py_ssize_t n &#x3D; (_end) - (_iter);</span><br><span class="line">  const Py_UNICODE *_unrolled_end &#x3D; _iter + ((size_t)(n) &amp; ~(size_t)((4) - 1));</span><br><span class="line">  while (_iter &lt; (_unrolled_end)) &#123;</span><br><span class="line">    _to[0] &#x3D; (unsigned char)_iter[0];</span><br><span class="line">    _to[1] &#x3D; (unsigned char)_iter[1];</span><br><span class="line">    _to[2] &#x3D; (unsigned char)_iter[2];</span><br><span class="line">    _to[3] &#x3D; (unsigned char)_iter[3];</span><br><span class="line">    _iter +&#x3D; 4;</span><br><span class="line">    _to +&#x3D; 4;</span><br><span class="line">  &#125;</span><br><span class="line">  while (_iter &lt; (_end))</span><br><span class="line">    *_to++ &#x3D; (unsigned char)*_iter++;</span><br><span class="line">&#125; while (0)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">(lldb) p ((void *)((PyASCIIObject *)(unicode) + 1))</span><br><span class="line">(void *) $19 &#x3D; 0x0000021aa88448e0</span><br><span class="line">(lldb) p ((const char *)((PyASCIIObject *)(unicode) + 1))</span><br><span class="line">(const char *) $20 &#x3D; 0x0000021aa88448e0 &quot;G:\projects\open_source_projects\cpython\PCbuild\amd64\python_d.exe&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://puzzzzzzle.github.io/2021/05/08/cpython-PyObject-%E7%BB%A7%E6%89%BF%E6%9C%BA%E5%88%B6%E7%9A%84%E5%AE%9E%E7%8E%B0/" data-id="ckopfn0nj00029k1fe3fqb6hn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-c-union-中使用非POD对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/05/07/c-union-%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9D%9EPOD%E5%AF%B9%E8%B1%A1/" class="article-date">
+  <time datetime="2021-05-07T03:25:31.000Z" itemprop="datePublished">2021-05-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/07/c-union-%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9D%9EPOD%E5%AF%B9%E8%B1%A1/">c++ union 中使用非POD对象</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="c-union-中使用非POD对象"><a href="#c-union-中使用非POD对象" class="headerlink" title="c++ union 中使用非POD对象"></a>c++ union 中使用非POD对象</h1><h2 id="c-定义"><a href="#c-定义" class="headerlink" title="c++ 定义"></a>c++ 定义</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(C++11 前)</span><br><span class="line">联合体不能含有带非平凡特殊成员函数（复制构造函数、复制赋值运算符或析构函数）的非静态数据成员。</span><br><span class="line"></span><br><span class="line">(C++11 起)</span><br><span class="line">若联合体含有带非平凡特殊成员函数（复制&#x2F;移动构造函数，复制&#x2F;移动赋值，或析构函数）的非静态数据成员，则联合体中的该函数默认被弃置，且需要程序员显式定义它。</span><br><span class="line"></span><br><span class="line">若联合体含有带非平凡默认构造函数的非静态数据成员，则该联合体的默认构造函数默认被弃置，除非联合体的变体成员拥有一个默认成员初始化器。</span><br><span class="line"></span><br><span class="line">至多一个变体成员可以拥有默认成员初始化器。</span><br></pre></td></tr></table></figure>
+<ol>
+<li>c++11 起, 可以使用 非POD对象, 但是 c++不会帮你调用默认的构造和析构函数, 必须自己定义</li>
+</ol>
+<h2 id="对于POD数据"><a href="#对于POD数据" class="headerlink" title="对于POD数据"></a>对于POD数据</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">S</span> &#123;</span></span><br><span class="line">  std::<span class="keyword">int32_t</span> n;      <span class="comment">// 占用4字节</span></span><br><span class="line">  std::<span class="keyword">uint16_t</span> s[<span class="number">2</span>];  <span class="comment">// 占用4字节</span></span><br><span class="line">  std::<span class="keyword">uint8_t</span> c;      <span class="comment">// 占用1字节</span></span><br><span class="line">&#125;;                     <span class="comment">// 整体占用4字节</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">TEST</span>(build_in, <span class="number">1</span>) &#123;</span><br><span class="line">  S s = &#123;<span class="number">0x12345678</span>&#125;;  <span class="comment">// 初始化第一个成员，当前s.n为活跃成员</span></span><br><span class="line">  <span class="comment">// 于此点，读取 s.s 或 s.c 是未定义行为</span></span><br><span class="line">  std::cout &lt;&lt; std::hex &lt;&lt; <span class="string">&quot;s.n = &quot;</span> &lt;&lt; s.n &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">  s.s[<span class="number">0</span>] = <span class="number">0x0011</span>;  <span class="comment">// s.s 现在是活跃成员</span></span><br><span class="line">  <span class="comment">// 在此点，读取 s.n 或 s.c 是未定义行为</span></span><br><span class="line">  std::cout &lt;&lt; <span class="string">&quot;s.c is now &quot;</span> &lt;&lt; +s.c &lt;&lt; <span class="string">&#x27;\n&#x27;</span>  <span class="comment">// 11 or 00, 依赖平台实现</span></span><br><span class="line">            &lt;&lt; <span class="string">&quot;s.n is now &quot;</span> &lt;&lt; s.n &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;  <span class="comment">// 12340011 or 00115678</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>这个很好理解, c++只是提供了一块内存, 保证可以放下最大的, 怎么解析是程序员的事情</li>
+</ol>
+<h2 id="对于非POD对象"><a href="#对于非POD对象" class="headerlink" title="对于非POD对象"></a>对于非POD对象</h2><h3 id="用于测试的c-class"><a href="#用于测试的c-class" class="headerlink" title="用于测试的c++ class:"></a>用于测试的c++ class:</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> MyT &#123;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> &#123;</span></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">  std::string name&#123;&#125;;</span><br><span class="line">  <span class="function">std::string <span class="title">ToString</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;MyClass:&quot;</span> + name + <span class="string">&quot;\t@&quot;</span> + std::<span class="built_in">to_string</span>((<span class="keyword">intptr_t</span>)<span class="keyword">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">MyClass</span>()&#123;<span class="built_in">LOG_DEBUG</span>(<span class="built_in">ToString</span>())&#125;;</span><br><span class="line">  <span class="built_in">MyClass</span>(<span class="keyword">const</span> std::string&amp; _name) &#123;</span><br><span class="line">    name = _name;</span><br><span class="line">    <span class="built_in">LOG_DEBUG</span>(<span class="built_in">ToString</span>())</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">MyClass</span>(<span class="keyword">const</span> MyClass&amp; obj) &#123;</span><br><span class="line">    name = obj.name;</span><br><span class="line">    <span class="built_in">LOG_DEBUG</span>(<span class="string">&quot;this: &quot;</span> &lt;&lt; <span class="built_in">ToString</span>() &lt;&lt; <span class="string">&quot;\tobj: &quot;</span> &lt;&lt; obj.<span class="built_in">ToString</span>())</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="built_in">MyClass</span>(MyClass&amp;&amp; obj) &#123;</span><br><span class="line">    <span class="built_in">LOG_DEBUG</span>(<span class="string">&quot;\tobj: &quot;</span> &lt;&lt; obj.<span class="built_in">ToString</span>())</span><br><span class="line">    std::<span class="built_in">swap</span>(name, obj.name);</span><br><span class="line">    <span class="built_in">LOG_DEBUG</span>(<span class="string">&quot;this: &quot;</span> &lt;&lt; <span class="built_in">ToString</span>())</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">virtual</span> ~<span class="built_in">MyClass</span>()&#123;<span class="built_in">LOG_DEBUG</span>(<span class="built_in">ToString</span>())&#125;;</span><br><span class="line">  MyClass&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> MyClass&amp; obj) &#123;</span><br><span class="line">    <span class="built_in">LOG_DEBUG</span>(<span class="string">&quot;this: &quot;</span> &lt;&lt; <span class="built_in">ToString</span>() &lt;&lt; <span class="string">&quot;\tobj: &quot;</span> &lt;&lt; obj.<span class="built_in">ToString</span>())</span><br><span class="line">    name = obj.name;</span><br><span class="line">    <span class="built_in">LOG_DEBUG</span>(<span class="string">&quot;this: &quot;</span> &lt;&lt; <span class="built_in">ToString</span>() &lt;&lt; <span class="string">&quot;\tobj: &quot;</span> &lt;&lt; obj.<span class="built_in">ToString</span>())</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  MyClass&amp; <span class="keyword">operator</span>=(MyClass&amp;&amp; obj) &#123;</span><br><span class="line">    <span class="built_in">LOG_DEBUG</span>(<span class="string">&quot;\tobj: &quot;</span> &lt;&lt; obj.<span class="built_in">ToString</span>())</span><br><span class="line">    std::<span class="built_in">swap</span>(name, obj.name);</span><br><span class="line">    <span class="built_in">LOG_DEBUG</span>(<span class="string">&quot;this: &quot;</span> &lt;&lt; <span class="built_in">ToString</span>())</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">&#125;  <span class="comment">// namespace MyT</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>调用构造, 拷贝, 移动, 析构时都打条log, 方便我们定位</li>
+<li>测试代码:<ol>
+<li>需要注意: <code>MyClass c4 = c2</code> 会调用复制构造函数, <code>MyClass c5; c5 = c2;</code> 才会调用operator=(&amp;)<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">TEST</span>(my_class, <span class="number">1</span>) &#123;</span><br><span class="line">  <span class="keyword">using</span> MyT::MyClass;</span><br><span class="line">  MyClass c1&#123;&#125;;</span><br><span class="line">  MyClass c2&#123;<span class="string">&quot;khalid&quot;</span>&#125;;</span><br><span class="line">  <span class="function">MyClass <span class="title">c3</span><span class="params">(c2)</span></span>;</span><br><span class="line">  <span class="comment">// 没有调用 operator= 而是使用了复制构造函数, 这是为了做优化</span></span><br><span class="line">  <span class="comment">// 而赋值操作符要求‘=’的左右对象均已存在，它的作用就是把‘=’右边的对象的值赋给左边的对象</span></span><br><span class="line">  MyClass c4 = c2;</span><br><span class="line">  <span class="comment">// 这种 的左右对象均已存在 才会</span></span><br><span class="line">  MyClass c5;</span><br><span class="line">  c5 = c2;</span><br><span class="line">  <span class="function">MyClass <span class="title">c6</span><span class="params">(std::move(c2))</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[1]    [debug]    [MyClass:	@140733882434096]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:44    MyT::MyClass::MyClass()]     [2021-05-25 11:04:36.885673]    [0x00005efc]    [0x00007f3d8c6ad780]    []</span><br><span class="line"> [2]    [debug]    [MyClass:khalid	@140733882434080]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:47    MyT::MyClass::MyClass(const string&amp;)]     [2021-05-25 11:04:36.885830]    [0x00005efc]    [0x00007f3d8c6ad780]    []</span><br><span class="line"> [3]    [debug]    [this: MyClass:khalid	@140733882434064	obj: MyClass:khalid	@140733882434080]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:51    MyT::MyClass::MyClass(const MyT::MyClass&amp;)]     [2021-05-25 11:04:36.885914]    [0x00005efc]    [0x00007f3d8c6ad780]    []</span><br><span class="line"> [4]    [debug]    [this: MyClass:khalid	@140733882434048	obj: MyClass:khalid	@140733882434080]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:51    MyT::MyClass::MyClass(const MyT::MyClass&amp;)]     [2021-05-25 11:04:36.885991]    [0x00005efc]    [0x00007f3d8c6ad780]    []</span><br><span class="line"> [5]    [debug]    [MyClass:	@140733882434032]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:44    MyT::MyClass::MyClass()]     [2021-05-25 11:04:36.886049]    [0x00005efc]    [0x00007f3d8c6ad780]    []</span><br><span class="line"> [6]    [debug]    [this: MyClass:	@140733882434032	obj: MyClass:khalid	@140733882434080]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:60    MyT::MyClass&amp; MyT::MyClass::operator&#x3D;(const MyT::MyClass&amp;)]     [2021-05-25 11:04:36.886101]    [0x00005efc]    [0x00007f3d8c6ad780]    []</span><br><span class="line"> [7]    [debug]    [this: MyClass:khalid	@140733882434032	obj: MyClass:khalid	@140733882434080]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:62    MyT::MyClass&amp; MyT::MyClass::operator&#x3D;(const MyT::MyClass&amp;)]     [2021-05-25 11:04:36.886158]    [0x00005efc]    [0x00007f3d8c6ad780]    []</span><br><span class="line"> [8]    [debug]    [	obj: MyClass:khalid	@140733882434080]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:54    MyT::MyClass::MyClass(MyT::MyClass&amp;&amp;)]     [2021-05-25 11:04:36.886211]    [0x00005efc]    [0x00007f3d8c6ad780]    []</span><br><span class="line"> [9]    [debug]    [this: MyClass:khalid	@140733882434016]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:56    MyT::MyClass::MyClass(MyT::MyClass&amp;&amp;)]     [2021-05-25 11:04:36.886264]    [0x00005efc]    [0x00007f3d8c6ad780]    []</span><br><span class="line"> [10]    [debug]    [MyClass:khalid	@140733882434016]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:58    virtual MyT::MyClass::~MyClass()]     [2021-05-25 11:04:36.886315]    [0x00005efc]    [0x00007f3d8c6ad780]    []</span><br><span class="line"> [11]    [debug]    [MyClass:khalid	@140733882434032]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:58    virtual MyT::MyClass::~MyClass()]     [2021-05-25 11:04:36.886365]    [0x00005efc]    [0x00007f3d8c6ad780]    []</span><br><span class="line"> [12]    [debug]    [MyClass:khalid	@140733882434048]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:58    virtual MyT::MyClass::~MyClass()]     [2021-05-25 11:04:36.886416]    [0x00005efc]    [0x00007f3d8c6ad780]    []</span><br><span class="line"> [13]    [debug]    [MyClass:khalid	@140733882434064]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:58    virtual MyT::MyClass::~MyClass()]     [2021-05-25 11:04:36.886466]    [0x00005efc]    [0x00007f3d8c6ad780]    []</span><br><span class="line"> [14]    [debug]    [MyClass:	@140733882434080]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:58    virtual MyT::MyClass::~MyClass()]     [2021-05-25 11:04:36.886515]    [0x00005efc]    [0x00007f3d8c6ad780]    []</span><br><span class="line"> [15]    [debug]    [MyClass:	@140733882434096]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:58    virtual MyT::MyClass::~MyClass()]     [2021-05-25 11:04:36.886564]    [0x00005efc]    [0x00007f3d8c6ad780]    []</span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+<h3 id="包含非POD的union"><a href="#包含非POD的union" class="headerlink" title="包含非POD的union"></a>包含非POD的union</h3><h4 id="一个错误的例子"><a href="#一个错误的例子" class="headerlink" title="一个错误的例子"></a>一个错误的例子</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// error</span></span><br><span class="line"><span class="keyword">namespace</span> t0 &#123;</span><br><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">A</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> a;</span><br><span class="line">  <span class="keyword">double</span> b;</span><br><span class="line">  std::string c;</span><br><span class="line">  MyClass d;</span><br><span class="line">  std::shared_ptr&lt;MyClass&gt; e;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// default constructor of &#x27;A0&#x27; is implicitly deleted because variant field &#x27;c&#x27;</span></span><br><span class="line"><span class="comment">// has a non-trivial default constructor</span></span><br><span class="line"> <span class="comment">// c 不是平凡类型, 必须自定义构造函数</span></span><br><span class="line"><span class="built_in">TEST</span>(adt,<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line">  A s;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li>无法通过编译, c 不是POD对象, 必须自定义构造函数<h4 id="一个可用的例子"><a href="#一个可用的例子" class="headerlink" title="一个可用的例子"></a>一个可用的例子</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 主动调用析构函数, 包装下免得调错</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">DestoryAt</span><span class="params">(T&amp; t)</span> </span>&#123;</span><br><span class="line">  t.~<span class="built_in">T</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">namespace</span> t1 &#123;</span><br><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">A</span> &#123;</span></span><br><span class="line">  std::string c;</span><br><span class="line">  MyT::MyClass d;</span><br><span class="line">  std::shared_ptr&lt;MyT::MyClass&gt; e;</span><br><span class="line">  <span class="built_in">A</span>() &#123;&#125;  <span class="comment">// 因为std::string拥有是非平凡的的数据类型，</span></span><br><span class="line">  ~<span class="built_in">A</span>() &#123;&#125;  <span class="comment">// 则A必须自定义构造函数和析构函数，否则无法进行实例化</span></span><br><span class="line">  <span class="comment">// 如果想实现复制语义，还得自定义复制(构造)函数</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">TEST</span>(adt, <span class="number">1</span>) &#123;</span><br><span class="line">  A s;</span><br><span class="line">  <span class="comment">// 激活 d</span></span><br><span class="line">  <span class="keyword">new</span> (&amp;s.d) MyT::<span class="built_in">MyClass</span>();</span><br><span class="line">  <span class="comment">// d可以使用了</span></span><br><span class="line">  s.d.name = <span class="string">&quot;in union&quot;</span>;</span><br><span class="line">  <span class="built_in">LOG_DEBUG</span>(<span class="string">&quot;&amp;s.d &quot;</span> &lt;&lt; &amp;s.d)</span><br><span class="line">  <span class="comment">// 必须手动释放 d</span></span><br><span class="line">  <span class="comment">// union 不会自动调用析构函数</span></span><br><span class="line">  <span class="comment">// 下面两种方法都行, 包装下免得调错</span></span><br><span class="line">  <span class="built_in">DestoryAt</span>(s.d);</span><br><span class="line">  <span class="comment">//  s.d.~MyClass();</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 激活e</span></span><br><span class="line">  <span class="keyword">new</span> (&amp;s.e) std::shared_ptr&lt;MyT::MyClass&gt;();</span><br><span class="line">  <span class="comment">// 初始化一个 MyClass</span></span><br><span class="line">  s.e = std::make_shared&lt;MyT::MyClass&gt;();</span><br><span class="line">  s.e-&gt;name = <span class="string">&quot;union ptr&quot;</span>;</span><br><span class="line">  <span class="comment">// 释放e</span></span><br><span class="line">  <span class="built_in">DestoryAt</span>(s.e);</span><br><span class="line">&#125;</span><br><span class="line">&#125;  <span class="comment">// namespace t1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[1]    [debug]    [MyClass:	@140730698243312]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:44    MyT::MyClass::MyClass()]     [2021-05-25 11:13:42.707161]    [0x0000648e]    [0x00007f5df07a5780]    []</span><br><span class="line">[2]    [debug]    [&amp;s.d 0x7ffe6b471cf0]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:126    virtual void t1::adt_1_Test::TestBody()]     [2021-05-25 11:13:42.707324]    [0x0000648e]    [0x00007f5df07a5780]    []</span><br><span class="line">[3]    [debug]    [MyClass:in union	@140730698243312]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:58    virtual MyT::MyClass::~MyClass()]     [2021-05-25 11:13:42.707407]    [0x0000648e]    [0x00007f5df07a5780]    []</span><br><span class="line">[4]    [debug]    [MyClass:	@22852584]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:44    MyT::MyClass::MyClass()]     [2021-05-25 11:13:42.707480]    [0x0000648e]    [0x00007f5df07a5780]    []</span><br><span class="line">[5]    [debug]    [MyClass:union ptr	@22852584]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:58    virtual MyT::MyClass::~MyClass()]     [2021-05-25 11:13:42.707535]    [0x0000648e]    [0x00007f5df07a5780]    []</span><br></pre></td></tr></table></figure></li>
+<li>这里构造和析构函数啥都没干, 也就是说不会自动构造和析构</li>
+<li>我们必须手动构造(使用 placement new), 手动析构(显示调用~ClassName())</li>
+<li>但这是证明union中放非POD对象是可行的<h4 id="一种常见的封装方式"><a href="#一种常见的封装方式" class="headerlink" title="一种常见的封装方式"></a>一种常见的封装方式</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> t2 &#123;</span><br><span class="line"><span class="comment">// 使用struct包装</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SA</span> &#123;</span></span><br><span class="line">  <span class="class"><span class="keyword">enum</span> <span class="keyword">class</span> <span class="title">Tag</span> :</span> <span class="keyword">int</span> &#123;</span><br><span class="line">    STRING = <span class="number">0</span>,</span><br><span class="line">    MY_CLASS,</span><br><span class="line">    MY_CLASS_SPTR,</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">const</span> Tag tag;</span><br><span class="line">  <span class="class"><span class="keyword">union</span> &#123;</span></span><br><span class="line">    std::string c;</span><br><span class="line">    MyT::MyClass d;</span><br><span class="line">    std::shared_ptr&lt;MyT::MyClass&gt; e;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="built_in">SA</span>() = <span class="keyword">delete</span>;</span><br><span class="line">  <span class="comment">// TODO</span></span><br><span class="line">  <span class="built_in">SA</span>(<span class="keyword">const</span> SA&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">  <span class="built_in">SA</span>(<span class="keyword">const</span> SA&amp;&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">  SA&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> SA&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">  SA&amp; <span class="keyword">operator</span>=(SA&amp;&amp;) = <span class="keyword">delete</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="built_in">SA</span>(Tag t) : <span class="built_in">tag</span>(t) &#123;</span><br><span class="line">    <span class="built_in"><span class="keyword">switch</span></span> (tag) &#123;</span><br><span class="line">      <span class="keyword">case</span> Tag::STRING:</span><br><span class="line">        <span class="keyword">new</span> (&amp;c) <span class="keyword">decltype</span>(c);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> Tag::MY_CLASS:</span><br><span class="line">        <span class="keyword">new</span> (&amp;d) <span class="keyword">decltype</span>(d);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> Tag::MY_CLASS_SPTR:</span><br><span class="line">        <span class="keyword">new</span> (&amp;e) <span class="keyword">decltype</span>(e);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="built_in">assert</span>(<span class="literal">false</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">virtual</span> ~<span class="built_in">SA</span>() &#123;</span><br><span class="line">    <span class="built_in"><span class="keyword">switch</span></span> (tag) &#123;</span><br><span class="line">      <span class="keyword">case</span> Tag::STRING:</span><br><span class="line">        <span class="built_in">DestoryAt</span>(c);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> Tag::MY_CLASS:</span><br><span class="line">        <span class="built_in">DestoryAt</span>(d);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> Tag::MY_CLASS_SPTR:</span><br><span class="line">        <span class="built_in">DestoryAt</span>(e);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="built_in">assert</span>(<span class="literal">false</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">TEST</span>(adt, struct_type) &#123;</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="function">SA <span class="title">myclass</span><span class="params">(SA::Tag::MY_CLASS)</span></span>;</span><br><span class="line">    myclass.d.name = <span class="string">&quot;SA&quot;</span>;</span><br><span class="line">    <span class="built_in">LOG_DEBUG</span>(myclass.d.<span class="built_in">ToString</span>());</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="function">SA <span class="title">myclassPtr</span><span class="params">(SA::Tag::MY_CLASS_SPTR)</span></span>;</span><br><span class="line">    myclassPtr.e = std::make_shared&lt;<span class="keyword">decltype</span>(myclassPtr.e)::element_type&gt;();</span><br><span class="line">    myclassPtr.e-&gt;name = <span class="string">&quot;SAP&quot;</span>;</span><br><span class="line">    <span class="built_in">LOG_DEBUG</span>(myclassPtr.e-&gt;<span class="built_in">ToString</span>());</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;  <span class="comment">// namespace t2</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[1]    [debug]    [MyClass:	@140731968851312]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:44    MyT::MyClass::MyClass()]     [2021-05-25 11:15:15.048335]    [0x0000659b]    [0x00007fec328fe780]    []</span><br><span class="line">[2]    [debug]    [MyClass:SA	@140731968851312]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:203    virtual void t2::adt_struct_type_Test::TestBody()]     [2021-05-25 11:15:15.048452]    [0x0000659b]    [0x00007fec328fe780]    []</span><br><span class="line">[3]    [debug]    [MyClass:SA	@140731968851312]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:58    virtual MyT::MyClass::~MyClass()]     [2021-05-25 11:15:15.048486]    [0x0000659b]    [0x00007fec328fe780]    []</span><br><span class="line">[4]    [debug]    [MyClass:	@26641416]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:44    MyT::MyClass::MyClass()]     [2021-05-25 11:15:15.048515]    [0x0000659b]    [0x00007fec328fe780]    []</span><br><span class="line">[5]    [debug]    [MyClass:SAP	@26641416]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:210    virtual void t2::adt_struct_type_Test::TestBody()]     [2021-05-25 11:15:15.048543]    [0x0000659b]    [0x00007fec328fe780]    []</span><br><span class="line">[6]    [debug]    [MyClass:SAP	@26641416]   [&#x2F;tmp&#x2F;tmp.s62aUyvWJo&#x2F;src&#x2F;cpp_language&#x2F;union_adt_test&#x2F;main.cpp:58    virtual MyT::MyClass::~MyClass()]     [2021-05-25 11:15:15.048571]    [0x0000659b]    [0x00007fec328fe780]    []</span><br></pre></td></tr></table></figure></li>
+<li>这里使用 TLV的思路, 使用Tag+Value进行封装, 使用struct进行包装</li>
+<li>这样外部使用的时候就类似在使用一个struct而非union, 实现自动构造&amp;析构</li>
+<li>当然, 这只是个简单的例子, 实际使用的时候, 还可以实现各种构造函数和operator, 使他更像struct, 还可以把union对象private化, 使用函数获取, 这样就可以校验类型是否对的上<ol>
+<li>当然, 一般都是用脚本生成的, 我在项目中是用Python写了个protobuf 的protoc后端, 用jinja2直接渲染出代码用</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://puzzzzzzle.github.io/2021/05/07/c-union-%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9D%9EPOD%E5%AF%B9%E8%B1%A1/" data-id="ckopfn0nf00009k1fgsxs556r" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-cmake-execute-process-用法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/05/03/cmake-execute-process-%E7%94%A8%E6%B3%95/" class="article-date">
+  <time datetime="2021-05-03T08:42:16.000Z" itemprop="datePublished">2021-05-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/03/cmake-execute-process-%E7%94%A8%E6%B3%95/">cmake execute_process 用法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="cmake-execute-process-用法"><a href="#cmake-execute-process-用法" class="headerlink" title="cmake execute_process 用法"></a>cmake execute_process 用法</h1><h2 id="原文档"><a href="#原文档" class="headerlink" title="原文档"></a>原文档</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://cmake.org/cmake/help/latest/command/execute_process.html">https://cmake.org/cmake/help/latest/command/execute_process.html</a></li>
+<li>Runs the given sequence of one or more commands.</li>
+<li>Commands are executed concurrently as a pipeline, with the standard output of each process piped to the standard input of the next. A single standard error pipe is used for all processes.</li>
+<li>COMMAND<ol>
+<li>A child process command line.</li>
+<li>CMake executes the child process using operating system APIs directly. All arguments are passed VERBATIM to the child process. No intermediate shell is used, so shell operators such as &gt; are treated as normal arguments. (Use the INPUT_*, OUTPUT_*, and ERROR_* options to redirect stdin, stdout, and stderr.)</li>
+<li>If a sequential execution of multiple commands is required, use multiple execute_process() calls with a single COMMAND argument.<h2 id="总结如下"><a href="#总结如下" class="headerlink" title="总结如下"></a>总结如下</h2></li>
+</ol>
+</li>
+<li>虽然文中说会被<strong>逐字传递给子进程</strong>, 但是, 以${} 包围的代码会被提前解析, 使用cmake 中的值替代<ol>
+<li>也可以使用环境变量传递</li>
+</ol>
+</li>
+<li>可以运行多个命令</li>
+<li>但是上一个命令的标准输出会被管道发送到下一个命令的标准输入<ol>
+<li>所以多个Command 都有输出的话, 只有最有一个的输出会被保存到<code>OUTPUT_VARIABLE</code></li>
+<li>前面的都传入给下一个了</li>
+</ol>
+</li>
+<li>如果需要多个命令的输出, 使用多个execute_process, 每个包含一个Command<h2 id="实际使用注意点"><a href="#实际使用注意点" class="headerlink" title="实际使用注意点"></a>实际使用注意点</h2></li>
+<li>COMMAND 并不是按照shell执行的, 而是直接起一个进程, 执行输入的命令<ol>
+<li>所以<code>COMMAND echo $PATH</code> 会直接输出 $PATH, 而非解析 $PATH 值, 因为这是在直接执行 echo 可执行程序, 环境变量的解析 是shell干的活<ol>
+<li>这里没有shell</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>需要执行shell命令的 使用类似 <code>COMMAND sh -c &quot;echo $PATH&quot;</code><ol>
+<li>这样会起一个sh进程, 再由sh进程执行 echo 命令, 这样就有环境变量了<h2 id="一个接受参数的并使用的例子"><a href="#一个接受参数的并使用的例子" class="headerlink" title="一个接受参数的并使用的例子"></a>一个接受参数的并使用的例子</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 设置参数</span><br><span class="line"># env 中设置 参数, COMMAND 可以通过 $ARG_TO_PASS 获取, 但是 $&#123;ARG_TO_PASS&#125; 会被提前解析, 传入cmd 中的时候, 就已经是 它的值了</span><br><span class="line">set(ENV&#123;ARG_TO_PASS&#125; &quot;from cmake, env var&quot;)</span><br><span class="line">set(ARG_TO_PASS &quot;this is cmake var&quot;)</span><br><span class="line"></span><br><span class="line">execute_process(</span><br><span class="line">        # 有了sh 后 就可以使用sh中带不带括号的方式获取变量了</span><br><span class="line">        # 但是注意: $ARG_TO_PASS 和 cmake 中的变量没关系, 已经被设置为系统环境变量了</span><br><span class="line">        # $&#123;ARG_TO_PASS&#125; 在执行前, 已经被cmake 替换了, 传入的就是 &quot;this is cmake var&quot;</span><br><span class="line">        COMMAND sh -c &quot;echo $ARG_TO_PASS ------ $&#123;ARG_TO_PASS&#125;&quot;</span><br><span class="line">        OUTPUT_VARIABLE _RES</span><br><span class="line">        ERROR_VARIABLE _RES</span><br><span class="line">        ERROR_QUIET</span><br><span class="line">)</span><br><span class="line">message(&quot;run result: $&#123;_RES&#125;&quot;)</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">run result: from cmake, env var ------ this is cmake var</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://puzzzzzzle.github.io/2021/05/03/cmake-execute-process-%E7%94%A8%E6%B3%95/" data-id="ckopfn0ni00019k1fbri79jbw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-cmake-查看预处理文件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/05/02/cmake-%E6%9F%A5%E7%9C%8B%E9%A2%84%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6/" class="article-date">
@@ -421,206 +638,6 @@
 
 
   
-    <article id="post-idea中的正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/16/idea%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="article-date">
-  <time datetime="2020-05-16T07:38:15.000Z" itemprop="datePublished">2020-05-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/16/idea%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">idea中的正则表达式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="idea中的正则表达式"><a href="#idea中的正则表达式" class="headerlink" title="idea中的正则表达式"></a>idea中的正则表达式</h1><h2 id="部分替换"><a href="#部分替换" class="headerlink" title="部分替换"></a>部分替换</h2><ul>
-<li>贪婪模式<ul>
-<li>hello((.<em>),.</em>)</li>
-<li>$1 表示上面被括号包起来的部分,类似sed, $0 表示全部, $1 表示第一个</li>
-<li><img src="idea%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/QQ%E6%88%AA%E5%9B%BE20200609200740.png" alt=""><img src="/2020/05/16/idea%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/QQ%E6%88%AA%E5%9B%BE20200609200740.png" class="" title="This is an example image"></li>
-</ul>
-</li>
-<li>非贪婪模式<ul>
-<li>使用?表示这次匹配是非贪婪的, 采用最小匹配原则</li>
-<li><img src="idea%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/QQ%E6%88%AA%E5%9B%BE20200609215746.png" alt=""><img src="/2020/05/16/idea%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/QQ%E6%88%AA%E5%9B%BE20200609215746.png" class="" title="This is an example image">
-
-
-</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://puzzzzzzle.github.io/2020/05/16/idea%E4%B8%AD%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-id="ckf2n6f2k000e801f6do35zle" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-gameloop算法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/01/gameloop%E7%AE%97%E6%B3%95/" class="article-date">
-  <time datetime="2020-05-01T07:24:12.000Z" itemprop="datePublished">2020-05-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/game/">game</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/01/gameloop%E7%AE%97%E6%B3%95/">gameloop算法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="翻译自-gameprogrammingpatterns"><a href="#翻译自-gameprogrammingpatterns" class="headerlink" title="翻译自 gameprogrammingpatterns"></a>翻译自 <a href="http://gameprogrammingpatterns.com/game-loop.html" target="_blank" rel="noopener">gameprogrammingpatterns</a></h1><h1 id="ing"><a href="#ing" class="headerlink" title="ing"></a>ing</h1>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://puzzzzzzle.github.io/2020/05/01/gameloop%E7%AE%97%E6%B3%95/" data-id="ckf2n6f2g000a801f5y1s411l" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/game/" rel="tag">game</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-高效的ID管理-随机-删除方式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/01/%E9%AB%98%E6%95%88%E7%9A%84ID%E7%AE%A1%E7%90%86-%E9%9A%8F%E6%9C%BA-%E5%88%A0%E9%99%A4%E6%96%B9%E5%BC%8F/" class="article-date">
-  <time datetime="2020-05-01T06:53:10.000Z" itemprop="datePublished">2020-05-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/c/">c++</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/01/%E9%AB%98%E6%95%88%E7%9A%84ID%E7%AE%A1%E7%90%86-%E9%9A%8F%E6%9C%BA-%E5%88%A0%E9%99%A4%E6%96%B9%E5%BC%8F/">高效的ID管理,随机,删除方式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="高效的ID管理-随机-删除方式"><a href="#高效的ID管理-随机-删除方式" class="headerlink" title="高效的ID管理,随机,删除方式"></a>高效的ID管理,随机,删除方式</h1><ul>
-<li>在测试时,需要随机生成很多key进行管理,还需要随机取出,删除<ul>
-<li>最早使用rb_tree_map管理,但是性能不行,反倒是ID管理成为了瓶颈,无法测出程序真正的性能瓶颈</li>
-</ul>
-</li>
-<li>使用裸数组和hash_map,可以实现O(1)的随机,添加和删除也只是hash_map的复杂的,性能提高了很多<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">#pragma once</span><br><span class="line">#include &lt;cstdlib&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">#include &lt;unordered_map&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line"></span><br><span class="line">#define RAND(begin, end) ((rand() % ((end) - (begin))) + (begin))</span><br><span class="line"></span><br><span class="line">template&lt;class KeyType&gt;</span><br><span class="line">class KeyHolder</span><br><span class="line">&#123;</span><br><span class="line">private:</span><br><span class="line">    KeyType *keys&#123;&#125;;</span><br><span class="line">    int point&#123;0&#125;;</span><br><span class="line">    const int MAX_SIZE;</span><br><span class="line">    std::unordered_map&lt;KeyType, int&gt; keyMap&#123;&#125;;</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    KeyHolder(KeyHolder &amp;) &#x3D; delete;</span><br><span class="line">    KeyHolder(KeyHolder &amp;&amp;) &#x3D; delete;</span><br><span class="line"></span><br><span class="line">    KeyHolder(int maxSize) : MAX_SIZE(maxSize)</span><br><span class="line">    &#123;</span><br><span class="line">        keys &#x3D; new KeyType[maxSize];</span><br><span class="line">    &#125;</span><br><span class="line">    ~KeyHolder()</span><br><span class="line">    &#123;</span><br><span class="line">        if (keys !&#x3D; nullptr)</span><br><span class="line">        &#123;</span><br><span class="line">            delete[] keys;</span><br><span class="line">            keys &#x3D; nullptr;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    int Add(const KeyType &amp;key)</span><br><span class="line">    &#123;</span><br><span class="line">        if (point &gt;&#x3D; MAX_SIZE)</span><br><span class="line">        &#123;</span><br><span class="line">            return -2;</span><br><span class="line">        &#125;</span><br><span class="line">        auto ret &#x3D; keyMap.insert(std::make_pair(key, point));</span><br><span class="line">        if (!ret.second)</span><br><span class="line">        &#123;</span><br><span class="line">            return -1;</span><br><span class="line">        &#125;</span><br><span class="line">        keys[point] &#x3D; key;</span><br><span class="line">        ++point;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    int Rand(KeyType *outKey)</span><br><span class="line">    &#123;</span><br><span class="line">        if (point &#x3D;&#x3D; 0)</span><br><span class="line">        &#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">        int randNum &#x3D; RAND(0, point);</span><br><span class="line">        (*outKey) &#x3D; keys[randNum];</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    int Remove(const KeyType &amp;key)</span><br><span class="line">    &#123;</span><br><span class="line">        auto it &#x3D; keyMap.find(key);</span><br><span class="line">        if (it &#x3D;&#x3D; keyMap.end())</span><br><span class="line">        &#123;</span><br><span class="line">            return -1;</span><br><span class="line">        &#125;</span><br><span class="line">        int index &#x3D; it-&gt;second;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; 和最后一个交换位置</span><br><span class="line">        keys[index] &#x3D; keys[point - 1];</span><br><span class="line">        keyMap[keys[index]] &#x3D; index;</span><br><span class="line">        --point;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://puzzzzzzle.github.io/2020/05/01/%E9%AB%98%E6%95%88%E7%9A%84ID%E7%AE%A1%E7%90%86-%E9%9A%8F%E6%9C%BA-%E5%88%A0%E9%99%A4%E6%96%B9%E5%BC%8F/" data-id="ckf2n6f2o000p801fbd3j92x6" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ID/" rel="tag">ID</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-改进的SnowFlake-多机唯一ID生成器" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/01/%E6%94%B9%E8%BF%9B%E7%9A%84SnowFlake-%E5%A4%9A%E6%9C%BA%E5%94%AF%E4%B8%80ID%E7%94%9F%E6%88%90%E5%99%A8/" class="article-date">
-  <time datetime="2020-05-01T06:14:49.000Z" itemprop="datePublished">2020-05-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/c/">c++</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/01/%E6%94%B9%E8%BF%9B%E7%9A%84SnowFlake-%E5%A4%9A%E6%9C%BA%E5%94%AF%E4%B8%80ID%E7%94%9F%E6%88%90%E5%99%A8/">改进的SnowFlake,多机唯一ID生成器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="改进的SnowFlake-多机唯一ID生成器"><a href="#改进的SnowFlake-多机唯一ID生成器" class="headerlink" title="改进的SnowFlake,多机唯一ID生成器"></a>改进的SnowFlake,多机唯一ID生成器</h1><ul>
-<li>所谓的snowFlake ID生成器, 其实就是把int64分解分解为几个段,通过时间,机器ID,自增序列来生成唯一ID</li>
-<li><img src="%E6%94%B9%E8%BF%9B%E7%9A%84SnowFlake-%E5%A4%9A%E6%9C%BA%E5%94%AF%E4%B8%80ID%E7%94%9F%E6%88%90%E5%99%A8/QQ%E6%88%AA%E5%9B%BE20200501141530.png" alt=""><img src="/2020/05/01/%E6%94%B9%E8%BF%9B%E7%9A%84SnowFlake-%E5%A4%9A%E6%9C%BA%E5%94%AF%E4%B8%80ID%E7%94%9F%E6%88%90%E5%99%A8/QQ%E6%88%AA%E5%9B%BE20200501141530.png" class="" title="This is an example image"></li>
-<li>好用又没有什么实现难度</li>
-<li>可以灵活的按照自己的需要调整位的分配<h2 id="这里用c-实现了下-同时完善了下-添加了如下特性"><a href="#这里用c-实现了下-同时完善了下-添加了如下特性" class="headerlink" title="这里用c++实现了下, 同时完善了下,添加了如下特性"></a>这里用c++实现了下, 同时完善了下,添加了如下特性</h2></li>
-<li>设计每秒4095k个ID\</li>
-<li>对于过高的请求频率(超出了每ms请求上限,就陷入自旋等待)</li>
-<li>对于时间发生倒流,报错并陷入自旋等待</li>
-<li>如果出错时想要报错返回而不是自旋等待, 吧continue改为return就行<h2 id="测试方案"><a href="#测试方案" class="headerlink" title="测试方案"></a>测试方案</h2></li>
-<li>每次生成1亿个ID,使用set保存,不应该有重复</li>
-<li>连续跑200次,不应该有错误<h2 id="linux版实现-win自行修改getMs函数"><a href="#linux版实现-win自行修改getMs函数" class="headerlink" title="linux版实现(win自行修改getMs函数)"></a>linux版实现(win自行修改getMs函数)</h2></li>
-<li>head only, 直接使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;************************************************</span><br><span class="line"> * @desc 改进的snowflake算法, 设计每ms生成4095个id, 过高将自旋等待</span><br><span class="line"> *       依赖机器时间(ms), 如果时间被回调, 那么将陷入自旋等待, 并不断的告警</span><br><span class="line"> *       通过的测试用例: 单次生成1亿个id并插入set, 不应有错误, 连续跑100次, 不应有错误</span><br><span class="line"> *          测试用例在我的练手项目中, 后续想办法搬过来</span><br><span class="line"> *</span><br><span class="line"> *       !!!多线程不安全, 如需多线程使用, 自行加锁!!!</span><br><span class="line"> ************************************************&#x2F;</span><br><span class="line"></span><br><span class="line">#pragma once</span><br><span class="line"></span><br><span class="line">#include &lt;sys&#x2F;time.h&gt;</span><br><span class="line"></span><br><span class="line">#include &lt;chrono&gt;</span><br><span class="line">#include &lt;ctime&gt;</span><br><span class="line">#include &lt;mutex&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class SnowFlake</span><br><span class="line">&#123;</span><br><span class="line">private:</span><br><span class="line">    int64_t m_epoch&#123;&#125;;</span><br><span class="line">    int64_t m_lastUpdateTime&#123;&#125;;</span><br><span class="line">    int64_t m_curr&#123;&#125;;</span><br><span class="line">    int m_id&#123;&#125;;</span><br><span class="line">    int m_sequence&#123;&#125;;</span><br><span class="line"></span><br><span class="line">    uint64_t GetNowMs()</span><br><span class="line">    &#123;</span><br><span class="line">        struct timeval tv</span><br><span class="line">            &#123;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">        gettimeofday(&amp;tv, NULL);</span><br><span class="line"></span><br><span class="line">        return tv.tv_sec * 1000 + tv.tv_usec &#x2F; 1000;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    std::string DumpInfo()</span><br><span class="line">    &#123;</span><br><span class="line">        std::stringstream oss&#123;&#125;;</span><br><span class="line">        oss &lt;&lt; &quot;m_epoch:\t&quot; &lt;&lt; m_epoch &lt;&lt; &quot;\n&quot;;</span><br><span class="line">        oss &lt;&lt; &quot;m_lastUpdateTime:\t&quot; &lt;&lt; m_lastUpdateTime &lt;&lt; &quot;\n&quot;;</span><br><span class="line">        oss &lt;&lt; &quot;m_curr:\t&quot; &lt;&lt; m_curr &lt;&lt; &quot;\n&quot;;</span><br><span class="line">        oss &lt;&lt; &quot;m_id:\t&quot; &lt;&lt; m_id &lt;&lt; &quot;\n&quot;;</span><br><span class="line">        oss &lt;&lt; &quot;m_sequence:\t&quot; &lt;&lt; m_sequence &lt;&lt; &quot;\n&quot;;</span><br><span class="line">        return oss.str();</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 系统起始时间 ms</span><br><span class="line">     * @param epoch</span><br><span class="line">     *&#x2F;</span><br><span class="line">    void SetEpoch(uint64_t epoch)</span><br><span class="line">    &#123;</span><br><span class="line">        this-&gt;m_epoch &#x3D; epoch;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 序列的ID, 可以用来区分多个机器 或者 单个机器内区分不同的类型以提高效率</span><br><span class="line">     * @param id</span><br><span class="line">     *&#x2F;</span><br><span class="line">    void SetID(int id)</span><br><span class="line">    &#123;</span><br><span class="line">        this-&gt;m_id &#x3D; id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    virtual int64_t Generate()</span><br><span class="line">    &#123;</span><br><span class="line">        int64_t value&#123;&#125;;</span><br><span class="line">        int64_t timeGap&#123;&#125;;</span><br><span class="line">        &#x2F;&#x2F; 防止时间回调  每ms不够时自旋等待的 snowflake</span><br><span class="line">        while (true)</span><br><span class="line">        &#123;</span><br><span class="line">            m_curr &#x3D; GetNowMs();</span><br><span class="line">            timeGap &#x3D; m_curr - m_lastUpdateTime;</span><br><span class="line">            &#x2F;&#x2F; 防止时间被回调</span><br><span class="line">            &#x2F;&#x2F; 没人回调生产环境的时间吧? 如果真有人手贱改了生产环境的时间, 就只能自旋等了</span><br><span class="line">            if (timeGap &lt; 0)</span><br><span class="line">            &#123;</span><br><span class="line">                &#x2F;&#x2F;ERROR(&quot;time go back!!! is any one change it ??? &quot; &lt;&lt; timeGap)</span><br><span class="line">                continue;</span><br><span class="line">            &#125;</span><br><span class="line">            else if (timeGap &#x3D;&#x3D; 0)</span><br><span class="line">            &#123;</span><br><span class="line">                if (m_sequence &gt;&#x3D; 0xFFF)</span><br><span class="line">                &#123;</span><br><span class="line">                    continue;</span><br><span class="line">                &#125;</span><br><span class="line">                else</span><br><span class="line">                &#123;</span><br><span class="line">                    &#x2F;&#x2F; 唯一出口, 会造成seq 0 不会出现 可接受</span><br><span class="line">                    ++m_sequence;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                m_sequence &#x3D; 0;</span><br><span class="line">                m_lastUpdateTime &#x3D; m_curr;</span><br><span class="line">                continue;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; timeGap  始终为0 但是还是加一下好</span><br><span class="line">        value |&#x3D; (m_lastUpdateTime - m_epoch + timeGap) &lt;&lt; 22;  &#x2F;&#x2F; 41 位表示时间(自epoch 起 ms), 可用69.7年</span><br><span class="line">        value |&#x3D; m_id &amp; 0x3FF &lt;&lt; 12;  &#x2F;&#x2F; 10 位(1024个) 表示机器ID或者类型ID, 用来表示机器ID时, 可以做到多机唯一</span><br><span class="line">        value |&#x3D; m_sequence &amp; 0xFFF;  &#x2F;&#x2F; 12 位(4095个) 表示序列, 没毫秒4095个可用ID</span><br><span class="line">        value &amp;&#x3D; 0x7FFFFFFFFFFFFFFF;  &#x2F;&#x2F; 最高位不应该有数字强制抹去最高位</span><br><span class="line">        return value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class ThreadSafeSnowFlake : public SnowFlake</span><br><span class="line">&#123;</span><br><span class="line">private:</span><br><span class="line">    std::mutex m_lock&#123;&#125;;</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 多线程安全的获取唯一ID</span><br><span class="line">     * @return</span><br><span class="line">     *&#x2F;</span><br><span class="line">    int64_t Generate() override</span><br><span class="line">    &#123;</span><br><span class="line">        std::lock_guard&lt;std::mutex&gt; lockGard(m_lock);</span><br><span class="line">        return SnowFlake::Generate();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="测试逻辑"><a href="#测试逻辑" class="headerlink" title="测试逻辑"></a>测试逻辑</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, char **argv) &#123;</span><br><span class="line">    int iRet &#x3D; 0;</span><br><span class="line">    &#x2F;&#x2F;    iRet     &#x3D; beforeRun();</span><br><span class="line">    &#x2F;&#x2F;    if (iRet) &#123;</span><br><span class="line">    &#x2F;&#x2F;        std::cerr &lt;&lt; &quot;init fail with &quot; &lt;&lt; iRet &lt;&lt; std::endl;</span><br><span class="line">    &#x2F;&#x2F;    &#125;</span><br><span class="line">    &#x2F;&#x2F;    testing::InitGoogleTest(&amp;argc, argv);</span><br><span class="line">    &#x2F;&#x2F;    iRet &#x3D; RUN_ALL_TESTS();</span><br><span class="line">    SnowFlakeChange snowFlakeChange&#123;&#125;;</span><br><span class="line">    snowFlakeChange.SetID(10);</span><br><span class="line">    &#x2F;&#x2F; unix time : +8 2020-04-18 14:50:44</span><br><span class="line">    &#x2F;&#x2F;    snowFlakeChange.SetEpoch(1587192644152);</span><br><span class="line">    snowFlakeChange.SetEpoch(getNowMs());</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; gen</span><br><span class="line">    TimeGap        gap&#123;&#125;;</span><br><span class="line">    std::set&lt;long&gt; uidSet&#123;&#125;;</span><br><span class="line">    &#123;</span><br><span class="line">        &#x2F;&#x2F;        LOG_DEBUG(&quot;start correct test&quot;)</span><br><span class="line">        for (int i &#x3D; 0; i &lt; 100000000; ++i) &#123;</span><br><span class="line">            auto uid &#x3D; snowFlakeChange.Generate();</span><br><span class="line">            if (!uidSet.insert(uid).second) &#123;</span><br><span class="line">                LOG_ERROR(&quot;uid fail &quot;)</span><br><span class="line">                LOG_ERROR(&quot;\n&quot; &lt;&lt; snowFlakeChange.DumpInfo())</span><br><span class="line">                iRet &#x3D; -1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    LOG_DEBUG(&quot;time use(us) : &quot; &lt;&lt; gap.gap())</span><br><span class="line">    return iRet;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://puzzzzzzle.github.io/2020/05/01/%E6%94%B9%E8%BF%9B%E7%9A%84SnowFlake-%E5%A4%9A%E6%9C%BA%E5%94%AF%E4%B8%80ID%E7%94%9F%E6%88%90%E5%99%A8/" data-id="ckf2n6f2p000q801f88in58e9" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ID/" rel="tag">ID</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c++</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -678,23 +695,23 @@
       <ul>
         
           <li>
+            <a href="/2021/05/15/c-%E5%A4%A7-map-%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E4%B8%8E%E4%BC%98%E5%8C%96/">c++ 大 map 性能分析与优化</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/08/cpython-PyObject-%E7%BB%A7%E6%89%BF%E6%9C%BA%E5%88%B6%E7%9A%84%E5%AE%9E%E7%8E%B0/">cpython PyObject 继承机制的实现</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/07/c-union-%E4%B8%AD%E4%BD%BF%E7%94%A8%E9%9D%9EPOD%E5%AF%B9%E8%B1%A1/">c++ union 中使用非POD对象</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/03/cmake-execute-process-%E7%94%A8%E6%B3%95/">cmake execute_process 用法</a>
+          </li>
+        
+          <li>
             <a href="/2021/05/02/cmake-%E6%9F%A5%E7%9C%8B%E9%A2%84%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6/">cmake 查看预处理文件</a>
-          </li>
-        
-          <li>
-            <a href="/2021/04/08/type-id-%E7%BB%86%E8%8A%82/">type id 细节</a>
-          </li>
-        
-          <li>
-            <a href="/2021/04/07/gdb-%E5%AE%89%E8%A3%85-python%E6%94%AF%E6%8C%81-%E4%B8%8E-pretty-pointer/">gdb 安装 python支持 与 pretty pointer</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/14/%E4%BD%BF%E7%94%A8awk%E9%87%8D%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6/">使用awk重命名文件</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/14/glibc-%E6%B1%87%E7%BC%96%E4%B8%AD%E7%9A%84cfi-xxx%E6%8C%87%E4%BB%A4/">glibc 汇编中的cfi_xxx指令</a>
           </li>
         
       </ul>
