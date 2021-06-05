@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://puzzzzzzle.github.io/2021/06/04/c-%E8%87%AA%E5%8A%A8%E5%9B%9E%E6%94%B6%E5%AF%B9%E8%B1%A1%E6%B1%A0/</loc>
+    
+    <lastmod>2021-06-04</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://puzzzzzzle.github.io/2021/05/03/cmake-execute-process-%E7%94%A8%E6%B3%95/</loc>
     
     <lastmod>2021-05-25</lastmod>
@@ -186,7 +193,7 @@
 
   <url>
     <loc>https://puzzzzzzle.github.io/</loc>
-    <lastmod>2021-05-25</lastmod>
+    <lastmod>2021-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -194,70 +201,70 @@
   
   <url>
     <loc>https://puzzzzzzle.github.io/tags/hexo/</loc>
-    <lastmod>2021-05-25</lastmod>
+    <lastmod>2021-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://puzzzzzzle.github.io/tags/gitPages/</loc>
-    <lastmod>2021-05-25</lastmod>
+    <lastmod>2021-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://puzzzzzzle.github.io/tags/c/</loc>
-    <lastmod>2021-05-25</lastmod>
+    <lastmod>2021-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://puzzzzzzle.github.io/tags/tools/</loc>
-    <lastmod>2021-05-25</lastmod>
+    <lastmod>2021-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://puzzzzzzle.github.io/tags/event/</loc>
-    <lastmod>2021-05-25</lastmod>
+    <lastmod>2021-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://puzzzzzzle.github.io/tags/game/</loc>
-    <lastmod>2021-05-25</lastmod>
+    <lastmod>2021-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://puzzzzzzle.github.io/tags/scope/</loc>
-    <lastmod>2021-05-25</lastmod>
+    <lastmod>2021-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://puzzzzzzle.github.io/tags/%E8%AE%BE%E8%AE%A1/</loc>
-    <lastmod>2021-05-25</lastmod>
+    <lastmod>2021-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://puzzzzzzle.github.io/tags/%E4%BC%98%E5%85%88%E7%BA%A7/</loc>
-    <lastmod>2021-05-25</lastmod>
+    <lastmod>2021-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://puzzzzzzle.github.io/tags/ID/</loc>
-    <lastmod>2021-05-25</lastmod>
+    <lastmod>2021-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -266,35 +273,35 @@
   
   <url>
     <loc>https://puzzzzzzle.github.io/categories/hexo/</loc>
-    <lastmod>2021-05-25</lastmod>
+    <lastmod>2021-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://puzzzzzzle.github.io/categories/tools/</loc>
-    <lastmod>2021-05-25</lastmod>
+    <lastmod>2021-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://puzzzzzzle.github.io/categories/c/</loc>
-    <lastmod>2021-05-25</lastmod>
+    <lastmod>2021-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://puzzzzzzle.github.io/categories/game/</loc>
-    <lastmod>2021-05-25</lastmod>
+    <lastmod>2021-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://puzzzzzzle.github.io/categories/%E8%AE%BE%E8%AE%A1/</loc>
-    <lastmod>2021-05-25</lastmod>
+    <lastmod>2021-06-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
